@@ -41,17 +41,17 @@ export const QUALIFY = {
   heading: "Veneers might be right for you if...",
   items: [
     {
-      icon: "tooth",
+      icon: "tooth-chip",
       title: "Chipped or worn teeth",
       body: "Fix damage from wear, injury, or grinding without invasive treatment.",
     },
     {
-      icon: "sparkle",
+      icon: "tooth-stain",
       title: "Stains that won't budge",
       body: "Discolouration from coffee, wine, or medication that whitening can't fix.",
     },
     {
-      icon: "align",
+      icon: "tooth-gap",
       title: "Gaps or uneven teeth",
       body: "Close small gaps and even out your smile without full orthodontics.",
     },
