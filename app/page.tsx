@@ -23,7 +23,7 @@ export default function VeneersLanding() {
       <div className="announce">
         <div className="container">
           <span>
-            <strong>Porcelain veneers</strong> in Goondiwindi
+            <strong>Porcelain veneers</strong> in {BIZ.location}
           </span>
           <span className="dot">•</span>
           <span className="a-2">
