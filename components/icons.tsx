@@ -149,6 +149,13 @@ export function Icon({ name, ...p }: { name: string } & SVGProps<SVGSVGElement>)
       </>
     ),
     check: <path d="m5 12 5 5 9-11" />,
+    card: (
+      <>
+        <rect x="2.5" y="5.5" width="19" height="13" rx="2.2" />
+        <path d="M2.5 10h19" />
+        <path d="M6 14.5h4" />
+      </>
+    ),
     award: (
       <>
         <circle cx="12" cy="8.6" r="5.6" />

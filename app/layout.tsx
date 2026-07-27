@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Questrial } from "next/font/google";
-import { BIZ, SERVICES } from "./data";
+import { BIZ, FAQS } from "./data";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -18,38 +18,43 @@ const questrial = Questrial({
   display: "swap",
 });
 
-// Canonical page for the Goondiwindi practice. Update if this deploys elsewhere.
+// CONFIRM BEFORE GO-LIVE: canonical URL for this veneers landing page.
+// Must match wherever the page is actually deployed.
 const CANONICAL =
-  "https://www.sparklingwhitedental.com.au/locations/family-dentist-in-goondiwindi/";
+  "https://www.sparklingwhitedental.com.au/goondiwindi-veneers/";
+// TODO: swap for a veneers-specific social image when one is available.
 const OG_IMAGE =
   "https://www.sparklingwhitedental.com.au/wp-content/uploads/2024/07/Experienced-Goondiwindi-Dentists-1.webp";
 
+const TITLE = "Porcelain Veneers Goondiwindi | Sparkling White Dental";
+const DESCRIPTION =
+  "Custom porcelain veneers in Goondiwindi, QLD. See real before & after results. Flexible payment plans. Book your free consultation today.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sparklingwhitedental.com.au"),
-  title: "Family Dentist in Goondiwindi | Sparkling White Dental",
-  description:
-    "Your trusted family dentist in Goondiwindi for 10 years. General, cosmetic & emergency dentistry, implants, orthodontics and children's care. Payment plans.",
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
-    "dentist Goondiwindi",
-    "family dentist Goondiwindi",
-    "emergency dentist Goondiwindi",
-    "dental implants Goondiwindi",
-    "children's dentist Goondiwindi",
-    "affordable dentist Goondiwindi",
-    "teeth whitening Goondiwindi",
-    "best dentist Goondiwindi",
+    "veneers Goondiwindi",
+    "porcelain veneers Goondiwindi",
+    "composite veneers Goondiwindi",
+    "dental veneers Goondiwindi QLD",
+    "cosmetic dentist Goondiwindi",
+    "smile makeover Goondiwindi",
+    "fix chipped teeth Goondiwindi",
+    "veneers cost Goondiwindi",
   ],
-  authors: [{ name: "Sparkling White Dental" }],
-  creator: "Sparkling White Dental",
-  publisher: "Sparkling White Dental",
+  authors: [{ name: BIZ.name }],
+  creator: BIZ.name,
+  publisher: BIZ.name,
   category: "Dentist",
   alternates: { canonical: CANONICAL },
   openGraph: {
-    title: "Family Dentist in Goondiwindi | Sparkling White Dental",
+    title: TITLE,
     description:
-      "10 years of trusted, affordable dental care in Goondiwindi. Comprehensive, gentle care in one convenient location.",
+      "Custom porcelain veneers in Goondiwindi — fix chips, gaps and staining. Real before & after results, flexible payment plans, free consultation.",
     url: CANONICAL,
-    siteName: "Sparkling White Dental",
+    siteName: BIZ.name,
     type: "website",
     locale: "en_AU",
     images: [
@@ -57,15 +62,14 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 543,
         height: 584,
-        alt: "Dr. Bik at Sparkling White Dental, Goondiwindi",
+        alt: `Dr Bikramjit at ${BIZ.name}, ${BIZ.location}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Family Dentist in Goondiwindi | Sparkling White Dental",
-    description:
-      "Your trusted family dentist in Goondiwindi for 10 years. Book online or call (07) 4671 1097.",
+    title: TITLE,
+    description: `Porcelain veneers in Goondiwindi. Book your free consultation — call ${BIZ.phone}.`,
     images: [OG_IMAGE],
   },
   robots: {
@@ -81,14 +85,12 @@ export const viewport: Viewport = {
   themeColor: "#0082b3",
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
+const dentistLd = {
   "@type": "Dentist",
   "@id": `${CANONICAL}#dentist`,
-  name: "Sparkling White Dental — Goondiwindi",
-  alternateName: "Family Dentist in Goondiwindi",
+  name: `${BIZ.name} — ${BIZ.location}`,
   description:
-    "Your family dentist in Goondiwindi for 10 years. General, cosmetic and emergency dentistry, implants, orthodontics and children's dentistry, led by Dr. Bik.",
+    "Porcelain and composite veneers in Goondiwindi, QLD. Custom-made veneers to correct chips, gaps and staining, led by Dr Bikramjit with more than 30 years of experience.",
   url: CANONICAL,
   telephone: "+61746711097",
   image: OG_IMAGE,
@@ -109,7 +111,6 @@ const jsonLd = {
     { "@type": "Place", name: "Goondiwindi Region" },
     { "@type": "Place", name: "Border Rivers, QLD/NSW" },
   ],
-  sameAs: [BIZ.facebook, BIZ.instagram],
   medicalSpecialty: "Dentistry",
   aggregateRating: {
     "@type": "AggregateRating",
@@ -118,10 +119,32 @@ const jsonLd = {
     bestRating: "5",
     worstRating: "1",
   },
-  availableService: SERVICES.map((s) => ({
-    "@type": "MedicalProcedure",
-    name: s.name,
+  availableService: [
+    { "@type": "MedicalProcedure", name: "Porcelain Veneers" },
+    { "@type": "MedicalProcedure", name: "Composite Veneers" },
+    { "@type": "MedicalProcedure", name: "Cosmetic Dentistry" },
+  ],
+  employee: {
+    "@type": "Person",
+    name: "Dr Bikramjit",
+    jobTitle: "Principal Dentist",
+  },
+};
+
+// FAQPage markup for the on-page FAQs — eligible for rich results.
+const faqLd = {
+  "@type": "FAQPage",
+  "@id": `${CANONICAL}#faq`,
+  mainEntity: FAQS.items.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [dentistLd, faqLd],
 };
 
 export default function RootLayout({
