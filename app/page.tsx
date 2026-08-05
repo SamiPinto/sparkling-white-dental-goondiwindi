@@ -113,19 +113,16 @@ export default function VeneersLanding() {
               >
                 <div className="qual-photo">
                   {q.photo ? (
-                    <>
-                      <Image
-                        src={q.photo}
-                        alt={q.photoAlt}
-                        fill
-                        sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 372px"
-                        style={{ objectFit: "cover" }}
-                      />
-                      <span className="qual-ico">
-                        <Icon name={q.icon} width={24} height={24} />
-                      </span>
-                    </>
+                    <Image
+                      src={q.photo}
+                      alt={q.photoAlt}
+                      fill
+                      sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 372px"
+                      quality={90}
+                      style={{ objectFit: "cover" }}
+                    />
                   ) : (
+                    /* q.icon is only used for this "awaiting photo" state now */
                     <span className="ph">
                       <Icon name={q.icon} width={30} height={30} />
                       Photo to be added
@@ -152,6 +149,7 @@ export default function VeneersLanding() {
                 alt={`${DOCTOR.capName}, Principal Dentist at ${BIZ.name}, ${BIZ.location}`}
                 fill
                 sizes="(max-width: 960px) 90vw, 420px"
+                quality={90}
                 style={{ objectFit: "cover", objectPosition: "top center" }}
               />
               <div className="doc-photo-cap">

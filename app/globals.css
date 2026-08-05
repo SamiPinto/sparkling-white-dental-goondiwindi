@@ -758,30 +758,6 @@ section {
   color: var(--brand-deep);
   opacity: 0.5;
 }
-/* Badge sits on the photo rather than straddling the card edge — .qual-photo
-   clips its overflow for the hover zoom and would cut an overhang off. */
-.qual-ico {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  z-index: 2;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  color: var(--brand-deep);
-  box-shadow: var(--shadow-sm);
-  display: grid;
-  place-items: center;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-.qual:hover .qual-ico {
-  background: var(--brand);
-  color: #fff;
-  transform: rotate(-6deg);
-}
 .qual-body {
   padding: 26px 28px 30px;
 }
