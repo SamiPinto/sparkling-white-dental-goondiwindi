@@ -4,7 +4,9 @@
 export const BIZ = {
   name: "Sparkling White Dental",
   location: "Goondiwindi",
+  locationDisplay: "Goondiwindi",
   city: "Goondiwindi",
+  postcode: "4390",
   phone: "(07) 4671 1097",
   phoneHref: "tel:+61746711097",
   address: "153 Marshall St, Goondiwindi QLD 4390",
