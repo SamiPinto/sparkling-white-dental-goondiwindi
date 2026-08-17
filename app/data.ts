@@ -16,7 +16,10 @@ export const BIZ = {
 // ---------------------------------------------------------------
 // TRACKING / FORM CONFIG — the only place to wire these up.
 //   fbPixelId  : Meta Pixel ID. Fires PageView + Lead on submit.
-//   gadsSendTo : Google Ads conversion id, e.g. "AW-XXXX/abcd".
+//   gadsId     : Google Ads account id. Loads gtag.js; without it nothing
+//                calls window.gtag and no conversion can fire.
+//   gadsSendTo : Google Ads conversion label, e.g. "AW-XXXX/abcd". Fired on
+//                form submit. Needs gadsId set too.
 //   formEndpoint: where the lead is POSTed. Empty = console log only.
 // gadsSendTo stays empty until the client supplies it. The endpoint is
 // our own route — it sends the instant SMS; see app/api/lead/route.ts for the
@@ -24,6 +27,7 @@ export const BIZ = {
 // ---------------------------------------------------------------
 export const TRACKING = {
   fbPixelId: "425647446643014",
+  gadsId: "AW-18327065331",
   gadsSendTo: "",
   formEndpoint: "/api/lead",
 };
