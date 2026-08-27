@@ -48,7 +48,7 @@ export const HERO = {
     "Woman smiling at her reflection in a bathroom mirror",
   trust: [
     { icon: "award", text: "30+ years experience" },
-    { icon: "card", text: "Payment plans available" },
+    { icon: "card", text: "Payment plans available — conditions apply" },
     { icon: "check", text: "Free initial consultation" },
   ],
 };
@@ -168,7 +168,7 @@ export const FAQS = {
     },
     {
       q: "How much do veneers cost?",
-      a: "Cost depends on how many teeth and the material chosen. We offer interest-free payment plans, Afterpay, and health fund options — book a free consultation for an exact quote.",
+      a: "Cost depends on how many teeth and the material chosen. We offer payment plan options (conditions apply) and health fund options — book a free consultation for an exact quote.",
     },
     {
       q: "Am I a good candidate for veneers?",
@@ -202,7 +202,7 @@ export const FORM = {
   fundingLabel: "How would you like to fund your treatment?",
   fundingOptions: [
     "I have private health insurance",
-    "I'd like a payment plan (Afterpay / Denticare)",
+    "I'd like a payment plan (conditions apply)",
     "I can pay upfront",
     "Not sure yet — I'd like to discuss options",
   ],
